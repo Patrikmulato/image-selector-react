@@ -3,6 +3,8 @@ import './App.scss';
 import Container from 'react-bootstrap/Container';
 import Pictures from './components/Pictures';
 import Categories from './components/Categories';
+import LastViewed from './components/LastViewed';
+import ActivePicture from './components/ActivePicture';
 // Importing all Images
 const importAll = r => r.keys().map(r);
 
@@ -27,6 +29,7 @@ function App() {
   const [active, setActive] = useState(true);
   const [pictureNumber, setPictureNumber] = useState('');
   const [crop, setCrop] = useState('');
+  const [lastCrop, setLastCrop] = useState('');
 
   // Pick category ./Categories
   const pickCategory = e => {
@@ -43,11 +46,16 @@ function App() {
     document.getElementById('hiddenCategories').style.visibility = 'visible';
   };
 
+  // Go back to pictures
+  const goBack = e => {
+    document.getElementById('hiddenCategories').style.visibility = 'hidden';
+    setActive(true);
+  };
+
   // Crop value change ./Pictures
   const onCropChange = crop => {
-    console.log(crop);
     setCrop(crop);
-    let cropBorder = document.getElementsByClassName(
+    const cropBorder = document.getElementsByClassName(
       'ReactCrop__crop-selection'
     );
     if (crop.height > 0 && crop.width > 0) {
@@ -59,34 +67,35 @@ function App() {
     setActive(true);
     doneSelection = [];
     let image = images[pictureNumber];
-    setCrop('');
     doneSelection.push({
       cords: crop,
-      images: image,
+      images: { name: image, alt: `car-${pictureNumber}` },
       category_name: activeCategory,
       category_color: category
     });
-
+    setCrop('');
     console.log(JSON.stringify(doneSelection));
-    console.log(doneSelection.cords);
+    setLastCrop(doneSelection);
   };
 
-  console.log(category);
   return (
     <Fragment>
       <Container>
         <h1>Image Selector</h1>
         <Pictures
-          images={images}
+          ActivePicture={ActivePicture}
           enLarge={enLarge}
           active={active}
-          pictureNumber={pictureNumber}
           category={category}
+          images={images}
           activeCategory={activeCategory}
+          pictureNumber={pictureNumber}
           crop={crop}
           onCropChange={onCropChange}
           saveJson={saveJson}
+          goBack={goBack}
         />
+        <LastViewed lastCrop={lastCrop} />
       </Container>
       <Categories pickCategory={pickCategory} categories={categories} />
     </Fragment>

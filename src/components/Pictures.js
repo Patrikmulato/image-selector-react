@@ -1,19 +1,19 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ReactCrop from 'react-image-crop';
-import 'react-image-crop/lib/ReactCrop.scss';
 
 const Pictures = ({
+  ActivePicture,
   images,
   enLarge,
   active,
-  pictureNumber,
   category,
   activeCategory,
+  pictureNumber,
   crop,
   onCropChange,
-  saveJson
+  saveJson,
+  goBack
 }) => {
   return (
     <Row>
@@ -24,18 +24,15 @@ const Pictures = ({
           </Col>
         ))
       ) : (
-        <Col>
-          <h3>category: {activeCategory}</h3>
-          <ReactCrop
-            alt={`car-${pictureNumber}`}
-            crop={crop}
-            src={images[pictureNumber]}
-            onChange={onCropChange}
-          />
-          <button type='button' onClick={saveJson}>
-            Save
-          </button>
-        </Col>
+        <ActivePicture
+          images={images}
+          activeCategory={activeCategory}
+          pictureNumber={pictureNumber}
+          crop={crop}
+          onCropChange={onCropChange}
+          saveJson={saveJson}
+          goBack={goBack}
+        />
       )}
     </Row>
   );

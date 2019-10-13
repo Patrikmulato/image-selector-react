@@ -1,0 +1,14 @@
+[
+  {
+    "cords": {
+      "x": 423.79999923706055,
+      "y": 170.40000009536743,
+      "width": 208,
+      "height": 203,
+      "unit": "px"
+    },
+    "images": { "name": "/static/media/4.1d083f33.jpg", "alt": "car-3" },
+    "category_name": "light",
+    "category_color": "green"
+  }
+]
