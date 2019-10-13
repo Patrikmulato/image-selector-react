@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from 'react';
-import json from '../json/data.json';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactCrop from 'react-image-crop';
@@ -7,10 +6,9 @@ import 'react-image-crop/lib/ReactCrop.scss';
 
 const Existing = ({ lastCrop }) => {
   const [crop, setCrop] = useState('');
-  console.log(lastCrop);
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center' }} className='last-viewed'>
       <h3>Last image that got saved</h3>
 
       {lastCrop && (

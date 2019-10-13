@@ -1,17 +1,82 @@
+/****************************************************
+Variables
+****************************************************/
+$green: #00b351;
+$black: #232517;
+$white: #eaeeff;
+/****************************************************
+Basics
+****************************************************/
+body {
+  background-color: $white;
+}
+h1,
+h3 {
+  text-align: center;
+  color: $green;
+}
+.ReactCrop__crop-selection {
+  border-image-source: none !important;
+}
+// Basic Button Style
+.button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  border-color: $green;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $white;
+  background-color: $green;
+  text-align: center;
+  transition: all 0.2s;
+}
+.button:hover {
+  background-color: #43724c;
+  color: $white;
+}
+@media all and (max-width: 30em) {
+   .button {
+    display: block;
+    margin: 0.2em auto;
+  }
+}
+.header {
+  text-align: center;
+}
+/****************************************************
+Pictures.js
+****************************************************/
 .main {
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
+.picture-block {
+  margin-bottom: 10px;
+}
 img {
+  cursor: pointer;
   width: 100%;
   height: auto;
   vertical-align: middle;
+  -webkit-box-shadow: 7px 2px 6px 1px rgba(217, 217, 217, 1);
+  -moz-box-shadow: 7px 2px 6px 1px rgba(217, 217, 217, 1);
+  box-shadow: 7px 2px 6px 1px rgba(217, 217, 217, 1);
 }
-
-h1,
-h3 {
-  text-align: center;
+/****************************************************
+ActivePicture.js
+****************************************************/
+.active-picture {
+  h3 {
+    color: $black;
+  }
 }
+/****************************************************
+Categories.js
+****************************************************/
 .categoryHider {
   visibility: hidden;
   position: absolute;
@@ -32,14 +97,19 @@ h3 {
   font-size: 36px;
   display: inline;
   line-height: 80px;
+  cursor: pointer;
 }
 .dialog {
-  box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px $black;
   position: static;
   left: 20%;
   top: 10%;
 }
-
-.ReactCrop__crop-selection {
-  border-image-source: none !important;
+/****************************************************
+LastViewed.js
+****************************************************/
+.last-viewed {
+  h3 {
+    color: $black;
+  }
 }

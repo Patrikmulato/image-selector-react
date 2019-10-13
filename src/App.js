@@ -5,6 +5,7 @@ import Pictures from './components/Pictures';
 import Categories from './components/Categories';
 import LastViewed from './components/LastViewed';
 import ActivePicture from './components/ActivePicture';
+import Header from './components/Header';
 // Importing all Images
 const importAll = r => r.keys().map(r);
 
@@ -74,6 +75,7 @@ function App() {
       category_color: category
     });
     setCrop('');
+    console.log('Json file after save: ');
     console.log(JSON.stringify(doneSelection));
     setLastCrop(doneSelection);
   };
@@ -81,7 +83,7 @@ function App() {
   return (
     <Fragment>
       <Container>
-        <h1>Image Selector</h1>
+        <Header active={active} />
         <Pictures
           ActivePicture={ActivePicture}
           enLarge={enLarge}

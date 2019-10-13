@@ -12,11 +12,10 @@ const ActivePicture = ({
   saveJson,
   goBack
 }) => {
-  console.log(images[pictureNumber]);
   return (
-    <Col>
+    <Col className='active-picture'>
       <h3>category: {activeCategory}</h3>
-      <button type='button' onClick={goBack}>
+      <button className='button' onClick={goBack}>
         Back
       </button>
       <ReactCrop
@@ -25,7 +24,7 @@ const ActivePicture = ({
         src={images[pictureNumber]}
         onChange={onCropChange}
       />
-      <button type='button' onClick={saveJson}>
+      <button className='button' onClick={saveJson}>
         Save
       </button>
     </Col>

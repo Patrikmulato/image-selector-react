@@ -19,7 +19,7 @@ const Pictures = ({
     <Row>
       {active ? (
         images.map((image, i) => (
-          <Col key={image} lg={6}>
+          <Col key={image} lg={6} className='picture-block'>
             <img alt={`car-${i}`} src={image} onClick={enLarge} />
           </Col>
         ))
