@@ -65,19 +65,24 @@ function App() {
   };
   // Making readable JSON file
   const saveJson = () => {
-    setActive(true);
-    doneSelection = [];
-    let image = images[pictureNumber];
-    doneSelection.push({
-      cords: crop,
-      images: { name: image, alt: `car-${pictureNumber}` },
-      category_name: activeCategory,
-      category_color: category
-    });
-    setCrop('');
-    console.log('Json file after save: ');
-    console.log(JSON.stringify(doneSelection));
-    setLastCrop(doneSelection);
+    if (activeCategory && crop) {
+      setActive(true);
+      doneSelection = [];
+      let image = images[pictureNumber];
+      doneSelection.push({
+        cords: crop,
+        images: { name: image, alt: `car-${pictureNumber}` },
+        category_name: activeCategory,
+        category_color: category
+      });
+      setCrop('');
+      setActiveCategory('');
+      console.log('Json file after save: ');
+      console.log(JSON.stringify(doneSelection));
+      setLastCrop(doneSelection);
+    } else {
+      alert(`Please finish the process`);
+    }
   };
 
   return (

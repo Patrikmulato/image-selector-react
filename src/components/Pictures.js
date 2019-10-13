@@ -20,7 +20,12 @@ const Pictures = ({
       {active ? (
         images.map((image, i) => (
           <Col key={image} lg={6} className='picture-block'>
-            <img alt={`car-${i}`} src={image} onClick={enLarge} />
+            <img
+              className='main-pictures'
+              alt={`car-${i}`}
+              src={image}
+              onClick={enLarge}
+            />
           </Col>
         ))
       ) : (
